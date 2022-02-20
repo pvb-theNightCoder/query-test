@@ -3,7 +3,11 @@ import asyncpg
 CONNECTION = "postgres://postgres:postgres@localhost:5432/postgres"
 
 
-async def main():
+def main():
+    await tscall()
+
+
+async def tscall():
     timescale_pool = CONNECTION
     connection_pool = await asyncpg.create_pool(dsn=timescale_pool)
     print("Created connection pool")
@@ -18,4 +22,4 @@ async def main():
 
 
 if __name__ == '__main__':
-    await main()
+    main()
